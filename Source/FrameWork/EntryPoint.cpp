@@ -18,6 +18,7 @@ void AEntryPoint::BeginPlay()
 	Super::BeginPlay();
 
 	lua_State *L = luaL_newstate();
+	luaL_openlibs(L);
 
 	lua_pushcfunction(L, LuaStatic::Print);
 	lua_setfield(L, LUA_GLOBALSINDEX, "print");
