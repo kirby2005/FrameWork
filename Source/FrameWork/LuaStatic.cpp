@@ -71,9 +71,13 @@ int LuaStatic::Loader(lua_State *L)
 	pPath.PathAppend(*filename, filename.Len());
 
 	if (luaL_loadfile(L, TCHAR_TO_UTF8(*pPath)) != 0)
+	{
 		UE_LOG(LogTemp, Error, TEXT("error loading module %s from file %s :\n\t%s"), UTF8_TO_TCHAR(lua_tostring(L, 1)), *filename, UTF8_TO_TCHAR(lua_tostring(L, -1)));
 		//luaL_error(L, "error loading module " LUA_QS " from file " LUA_QS ":\n\t%s",
 			//lua_tostring(L, 1), TCHAR_TO_UTF8(*filename), lua_tostring(L, -1));
+		FString err = FString::Printf(TEXT("failed to load file:%s"), *filename);
+		lua_pushstring(L, TCHAR_TO_UTF8(*err));
+	}
 
 	return 1;  /* library loaded successfully */
 }
