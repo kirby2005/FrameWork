@@ -22,6 +22,8 @@ void AEntryPoint::BeginPlay()
 
 	lua_pushcfunction(L, LuaStatic::Print);
 	lua_setfield(L, LUA_GLOBALSINDEX, "print");
+	lua_pushcfunction(L, LuaStatic::Error);
+	lua_setfield(L, LUA_GLOBALSINDEX, "error");
 	lua_pushcfunction(L, LuaStatic::Dofile);
 	lua_setfield(L, LUA_GLOBALSINDEX, "dofile");
 
