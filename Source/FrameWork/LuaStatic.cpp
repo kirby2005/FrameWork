@@ -77,7 +77,23 @@ int LuaStatic::Loader(lua_State *L)
 			//lua_tostring(L, 1), TCHAR_TO_UTF8(*filename), lua_tostring(L, -1));
 		FString err = FString::Printf(TEXT("failed to load file:%s"), *filename);
 		lua_pushstring(L, TCHAR_TO_UTF8(*err));
+		Traceback(L, TCHAR_TO_UTF8(*err));
+		FString trace = lua_tostring(L, -1);
+		UE_LOG(LogTemp, Error, TEXT("traceback: %s"), *trace);
 	}
 
 	return 1;  /* library loaded successfully */
+}
+
+
+int LuaStatic::Traceback(lua_State *L, const char * err)
+{
+	lua_getglobal(L, "debug");
+	lua_getfield(L, -1, "traceback");
+	lua_remove(L, -2);
+	lua_pushstring(L, err);
+	lua_pushnumber(L, 1);
+	lua_call(L, 2, 1);
+
+	return 1;
 }
