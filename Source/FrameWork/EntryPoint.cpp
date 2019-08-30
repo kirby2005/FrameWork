@@ -1,8 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "EntryPoint.h"
-#include "lua.hpp"
-#include "LuaStatic.h"
+#include "slua.h"
+//#include "lua.hpp"
+//#include "LuaStatic.h"
 
 // Sets default values
 AEntryPoint::AEntryPoint()
@@ -17,7 +18,7 @@ void AEntryPoint::BeginPlay()
 {
 	Super::BeginPlay();
 
-	//lua_State *L = luaL_newstate();
+	NS_SLUA::lua_State *L = NS_SLUA::luaL_newstate();
 	//luaL_openlibs(L);
 
 	//lua_pushcfunction(L, LuaStatic::Print);

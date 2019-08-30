@@ -28,7 +28,7 @@ public class FrameWork : ModuleRules
 
         // To include OnlineSubsystemSteam, add it to the plugins section in your uproject file with the Enabled attribute set to true
 
-        LoadLua(Target); // This functions loads Lua
+        //LoadLua(Target); // This functions loads Lua
     }
 
     private bool LoadLua(ReadOnlyTargetRules TargetRules)
