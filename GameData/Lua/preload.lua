@@ -1,1 +1,1 @@
-print("aaaaaaaaaaa")
+require "Main.EntryPoint"
