@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "slua.h"
 #include "EntryPoint.generated.h"
 
 UCLASS()
@@ -18,6 +19,8 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	NS_SLUA::LuaState* L;
 
 public:	
 	// Called every frame
