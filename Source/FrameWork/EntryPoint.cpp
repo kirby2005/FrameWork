@@ -17,7 +17,7 @@ void AEntryPoint::BeginPlay()
 
 	L = NS_SLUA::LuaState::get();
 	FString path = FPaths::ProjectDir();
-	L->doFile("Lua.Main.EntryPoint");
+	L->doFile("Main.EntryPoint");
 	L->call("EntryPoint");
 }
 

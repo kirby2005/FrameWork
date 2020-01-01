@@ -40,7 +40,7 @@ void UMyGameInstance::Init()
 		IPlatformFile& PlatformFile = FPlatformFileManager::Get().GetPlatformFile();
 		FString path = FPaths::ProjectDir();
 		FString filename = UTF8_TO_TCHAR(fn);
-		path /= "GameData";
+		path /= "GameData/Lua";
 		path /= filename.Replace(TEXT("."), TEXT("/"));
 
 		TArray<FString> luaExts = { UTF8_TO_TCHAR(".lua"), UTF8_TO_TCHAR(".luac") };
