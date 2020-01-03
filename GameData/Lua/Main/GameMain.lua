@@ -13,6 +13,9 @@ end
 
 function GameMain:GameInit()
     print("GameMain", "GameInit", self)
+
+    local PanelTest = require "GUI.PanelTest"
+    PanelTest:CreatePanel("a")
 end
 
 return GameMain
